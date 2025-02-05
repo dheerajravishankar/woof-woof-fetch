@@ -11,7 +11,8 @@
 .textContent h1,
 .textContent h2,
 .textContent h3 {
-  font-family: fantasy;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 @media (max-width: 899px) {

@@ -11,8 +11,8 @@ import Stack from "@mui/material/Stack";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function SideBar({ handleSort, sortOrder }) {
-  const { dogBreeds, filtersDispatch } = useDogs();
+function SideBar({ handleSort }) {
+  const { dogBreeds, filtersDispatch, sortOrder } = useDogs();
   const [collapse, setCollapse] = useState(false);
 
   function handleBreedsFilter(e) {

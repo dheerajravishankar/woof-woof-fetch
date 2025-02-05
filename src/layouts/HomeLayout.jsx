@@ -6,8 +6,8 @@ import styles from "./HomeLayout.module.css";
 import { useDogs } from "../context/DogsContext";
 import Banner from "../components/Banner";
 
-function HomeLayout({ handleNavigate, children, handleSort, sortOrder }) {
-  const { totalDogs } = useDogs();
+function HomeLayout({ handleNavigate, children, handleSort }) {
+  const { totalDogs, sortOrder } = useDogs();
   return (
     <div className={styles.allDogs}>
       <Header />

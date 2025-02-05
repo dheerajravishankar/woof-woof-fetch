@@ -8,8 +8,7 @@ import HomeLayout from "../layouts/HomeLayout";
 import { Backdrop, CircularProgress } from "@mui/material";
 
 function SearchPage() {
-  const { allDogsList, fetchAllDogs, loading, error, sortOrder, setSortOrder } =
-    useDogs();
+  const { allDogsList, fetchAllDogs, loading, error, setSortOrder } = useDogs();
 
   function handleNavigate(step) {
     fetchAllDogs(step);
@@ -22,11 +21,7 @@ function SearchPage() {
   }
 
   return (
-    <HomeLayout
-      handleNavigate={handleNavigate}
-      handleSort={handleSort}
-      sortOrder={sortOrder}
-    >
+    <HomeLayout handleNavigate={handleNavigate} handleSort={handleSort}>
       {error ? (
         <p className="error">{error}</p>
       ) : loading ? (

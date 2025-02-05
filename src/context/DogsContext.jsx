@@ -141,12 +141,8 @@ function DogsProvider({ children }) {
     try {
       const dogsData = await fetchDogIds(fetchUrl, filtersData);
       dogsDispatch({ type: "totalDogsDataReceived", payload: dogsData.total });
-      if (dogsData.next) {
-        dogsDispatch({ type: "setNextUrl", payload: dogsData.next || "" });
-      }
-      if (dogsData.prev) {
-        dogsDispatch({ type: "setPrevUrl", payload: dogsData.prev || "" });
-      }
+      dogsDispatch({ type: "setNextUrl", payload: dogsData.next || "" });
+      dogsDispatch({ type: "setPrevUrl", payload: dogsData.prev || "" });
 
       const dogs = await fetchDogs(dogsData.resultIds);
       dogsDispatch({ type: "dogsListReceived", payload: dogs });
@@ -194,6 +190,8 @@ function DogsProvider({ children }) {
         dogsDispatch,
         getMatchedDog,
         match,
+        nextUrl,
+        prevUrl,
       }}
     >
       {children}
