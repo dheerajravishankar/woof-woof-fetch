@@ -13,7 +13,7 @@ function LoginPage() {
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
     if (isAuthenticated) {
-      navigate("/search", { replace: true }); // Redirect if already logged in
+      navigate("/search", { replace: true });
     }
   }, []);
 
