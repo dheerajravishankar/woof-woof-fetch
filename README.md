@@ -70,6 +70,11 @@ Handles API requests to fetch data.
 - `fetchBreeds()`: Fetches available breeds.
 - `fetchMatch(favoriteIds)`: Finds a match.
 
+### 7. **Protected Route (ProtectedRoute.js)**
+A higher-order component that restricts access to authenticated users.
+- Checks authentication state: Redirects users to login if not authenticated.
+- Wraps protected routes: Ensures only logged-in users can access specific pages.
+
 ---
 
 ## User Flow
@@ -97,7 +102,6 @@ npm run dev
 ---
 
 ## Notes & Future Improvements
-✅ Ensure proper handling of authentication state before making API calls.
 ✅ Improve UI/UX with animations.
 ✅ Add unit tests for reducers and API functions.
 
