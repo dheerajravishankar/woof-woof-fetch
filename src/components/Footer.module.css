@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  float: right;
+  grid-area: footer;
+  justify-content: end;
+}
+
+.footer Button {
+  margin: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 899px) {
+  .footer {
+    justify-content: center;
+  }
+}

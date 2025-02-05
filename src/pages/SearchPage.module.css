@@ -1,0 +1,5 @@
+.allDogs {
+  display: grid;
+  align-content: space-evenly;
+  overflow: scroll;
+}

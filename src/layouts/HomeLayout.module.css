@@ -1,0 +1,45 @@
+.allDogs {
+  display: grid;
+  margin: 0 5vw;
+  grid-template-areas:
+    "header header"
+    "bannerImage textContent"
+    "dogsCount dogsCount"
+    "sideBar main"
+    "footer footer";
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+  align-content: space-evenly;
+  overflow: auto;
+}
+
+.dogsCount {
+  margin-left: 10px;
+  grid-area: dogsCount;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-area: main;
+}
+
+@media (max-width: 899px) {
+  .allDogs {
+    grid-template-areas:
+      "header"
+      "bannerImage"
+      "textContent"
+      "dogsCount"
+      "sideBar"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers items horizontally */
+  }
+}

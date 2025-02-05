@@ -1,0 +1,21 @@
+.bannerImage {
+  grid-area: bannerImage;
+  margin-top: 140px;
+}
+
+.textContent {
+  grid-area: textContent;
+  margin-top: 140px;
+}
+
+.textContent h1,
+.textContent h2,
+.textContent h3 {
+  font-family: fantasy;
+}
+
+@media (max-width: 899px) {
+  div.bannerImage {
+    display: none;
+  }
+}
