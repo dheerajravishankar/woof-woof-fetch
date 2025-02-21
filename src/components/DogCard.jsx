@@ -11,6 +11,7 @@ import { useDogs } from "../context/DogsContext";
 
 function DogCard({ dog }) {
   const { favoriteDogs, dogsDispatch } = useDogs();
+
   return (
     <div className={styles.dogItem}>
       <Card sx={{ maxWidth: 345 }}>

@@ -16,6 +16,12 @@ import { useAuth } from "./AuthContext";
 
 const DogsContext = createContext();
 
+let favoritesCache = JSON.parse(localStorage.getItem("favoritesCache"))
+  ? JSON.parse(localStorage.getItem("favoritesCache"))
+  : [];
+
+favoritesCache.map((item) => console.log(item));
+
 const dogsDataInitialState = {
   allDogsList: [],
   nextUrl: "",
@@ -24,7 +30,7 @@ const dogsDataInitialState = {
   dogLocations: [],
   error: null,
   totalDogs: 0,
-  favoriteDogs: [],
+  favoriteDogs: favoritesCache,
   match: {},
 };
 
@@ -48,11 +54,25 @@ function dogsDataReducer(state, action) {
     case "dogsListReceived":
       return { ...state, allDogsList: action.payload };
     case "favoriteToggled":
+      if (favoritesCache.length === 0) {
+        favoritesCache.push(action.payload);
+      } else {
+        if (favoritesCache.some((dog) => dog.id === action.payload.id)) {
+          favoritesCache = favoritesCache.filter(
+            (dog) => dog.id !== action.payload.id
+          );
+        } else {
+          favoritesCache.push(action.payload);
+        }
+      }
+      localStorage.setItem("favoritesCache", JSON.stringify(favoritesCache));
+
       return {
         ...state,
-        favoriteDogs: state.favoriteDogs.includes(action.payload)
-          ? state.favoriteDogs.filter((dog) => dog.id !== action.payload.id)
-          : [...state.favoriteDogs, action.payload],
+        // favoriteDogs: state.favoriteDogs.includes(action.payload)
+        //   ? state.favoriteDogs.filter((dog) => dog.id !== action.payload.id)
+        //   : [...state.favoriteDogs, action.payload],
+        favoriteDogs: JSON.parse(localStorage.getItem("favoritesCache")),
       };
     case "dogMatched":
       return {
